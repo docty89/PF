@@ -1,24 +1,34 @@
-# README
+# もったいないおばけ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+飲食店や卸業者などで余ったり、使わなくなった食材を、必要としているお店や一般のユーザーに原価または低価格で販売するサイトです。
 
-Things you may want to cover:
+### サイトテーマ
+コロナ期で苦しんでいる、飲食店や業者さんの助けになりたい
 
-* Ruby version
 
-* System dependencies
+### テーマを選んだ理由
+コロナウイルスによる影響を一番受けている飲食業界で、何か役に立ちそうなサービスはないかと考えた時に、時短や営業自粛による食材の破棄などが問題の一つであったためそこに着目し、需要と供給が成り立つサービスにならないかと考えました。
 
-* Configuration
+### ターゲットユーザ
+・飲食・外食関係で、余った食材などを捌きたいお店や業者
+・安く食材を仕入れたいお店・一般のユーザー（主婦など）
+### 主な利用シーン
+・余った食材を破棄せずに少しでもロスがなくせる
+・スーパーなどで買うよりも安く仕入れる事ができる
+## 設計書
 
-* Database creation
 
-* Database initialization
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/1UgK-6l38k5T81XjcTIn7CHnGRkB_sBXS5xQWAVhWmks/edit#gid=0>
 
-* How to run the test suite
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。

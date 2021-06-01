@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-
-
+  
+  resources :posts, only: [:new, :create, :index, :show, :destroy]
   root to: 'homes#top'
 end

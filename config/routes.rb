@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+
   root to: 'homes#top'
 end

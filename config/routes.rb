@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # devise_for :admins
   # devise_for :users
-
+  root to: 'homes#top'
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  
+
   resources :posts, only: [:new, :create, :index, :show, :destroy]
-  root to: 'homes#top'
+  resources :users, only: [:show]
 end

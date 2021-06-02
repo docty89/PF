@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
-
+  attachment :profile_image
   enum sex: { "男性": 0, "女性": 1}
 end

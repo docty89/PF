@@ -1,6 +1,7 @@
 <div class="post-body">
   <%= attachment_image_tag @post, :image %>
   <p>食材名：<%= @post.name %></p>
+  <P>価格:<%=@post.price %></P>
   <p>説明：<%= @post.body %></p>
   <p>投稿ユーザー画像:<%= attachment_image_tag @post.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpeg" %></p>
   <p>ユーザーネーム：<%= @post.user.name %></p>

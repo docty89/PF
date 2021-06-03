@@ -13,15 +13,17 @@ Rails.application.routes.draw do
   #   registrations: 'users/registrations'
   # }
 
-  namespace :admins do
+  namespace :admin do
 
   end
 
   scope module: :public do
     root to: 'homes#top'
     resources :posts
-    # resources :users, only: [:show, :edit, :update]
-  end
     resources :users, only: [:show, :edit, :update]
+    get 'chat/:id' => 'chats#show', as: 'chat'
+    resources :chats, only: [:create]
+  end
+    # resources :users, only: [:show, :edit, :update]
 
 end

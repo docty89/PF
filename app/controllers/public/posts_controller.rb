@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Public::PostsController < ApplicationController
 
   def new
     @post = Post.new
@@ -17,6 +17,16 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to post_path(@post)
   end
 
   def destroy

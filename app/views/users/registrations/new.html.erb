@@ -4,25 +4,48 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label "名前" %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
 
+  <div class="sex-field">
+      <%= f.label "性別" %><br />
+      <%= f.label "男性" %>
+      <%= f.radio_button :sex, "男性" %>
+      <%= f.label "女性" %>
+      <%= f.radio_button :sex, "女性" %>
+  </div>
+
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label "メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label "郵便番号" %><br>
+    <%= f.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label "都道府県" %><br>
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label "市区町村" %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label "パスワード" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %>文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "パスワード確認" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

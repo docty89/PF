@@ -1,0 +1,40 @@
+<div class="container">
+  <h2 class="mt-4" id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %>さんとのやりとり</h2>
+  <div class="line-bc">
+    <% @chats.each do |chat| %>
+      <% if chat.user_id == current_user.id %>
+      <div class="mycomment">
+        <p><%= chat.message %></p>
+      </div>
+      <div>
+        <p><%= l chat.created_at, format: :short %></p>
+      </div>
+      <% else %>
+    <div class="balloon6">
+      <div class="faceicon">
+        <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpeg" %>
+      </div>
+        <div class="chatting">
+          <div class="says">
+            <p><%= chat.message %></p>
+          </div>
+          <div>
+            <p><%= l chat.created_at, format: :short %></p>
+          </div>
+        </div>
+    </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="send-form">
+  <%= form_with model: @chat do |f| %>
+    <%= f.text_field :message %>
+    <%= f.hidden_field :room_id %>
+  </div>
+  <div class="send-btn">
+    <%= f.submit "送信する", class: 'button' %>
+  <% end %>
+  </div>
+
+</div>

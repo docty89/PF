@@ -1,18 +1,34 @@
 Rails.application.routes.draw do
-  # devise_for :admins
-  # devise_for :users
+  devise_for :admins
+  devise_for :users
+  # root to: 'homes#top'
+  # devise_for :admins, controllers: {
+  #   sessions:      'admins/sessions',
+  #   passwords:     'admins/passwords',
+  #   registrations: 'admins/registrations'
+  # }
+  # devise_for :users, controllers: {
+  #   sessions:      'users/sessions',
+  #   passwords:     'users/passwords',
+  #   registrations: 'users/registrations'
+  # }
 
-  devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
-    registrations: 'admins/registrations'
-  }
-  devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    passwords:     'users/passwords',
-    registrations: 'users/registrations'
-  }
+  namespace :admin do
 
+  end
 
-  root to: 'homes#top'
+  scope module: :public do
+    root to: 'homes#top'
+
+    resources :posts do
+      resource :favorites, only: [:create, :destroy]
+    end
+
+    resources :users, only: [:show, :edit, :update]
+
+    get 'chat/:id' => 'chats#show', as: 'chat'
+    resources :chats, only: [:create]
+  end
+    # resources :users, only: [:show, :edit, :update]
+
 end

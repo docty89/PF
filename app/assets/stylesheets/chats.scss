@@ -1,0 +1,129 @@
+// Place all the styles related to the chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.line-bc {
+  padding: 20px 10px;
+  max-width: 700px;
+  margin: 15px auto;
+  text-align: right;
+  font-size: 16px;
+  overflow: auto;
+  background: #EEEEEE;
+
+}
+
+/*左側のコメント*/
+.balloon6 {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.balloon6 .faceicon {
+  float: left;
+  margin-right: -50px;
+  width: 40px;
+}
+
+.balloon6 .faceicon img{
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+.balloon6 .chatting {
+  width: 100%;
+  text-align: left;
+}
+.says {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #CCCCCC;
+  word-wrap: normal;
+  text-align: left;
+}
+
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #CCCCCC;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+.says p {
+  margin: 0;
+  padding: 0;
+}
+
+/*右側のコメント*/
+.mycomment {
+  margin: 10px 0;
+}
+.mycomment p {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #FFFF99;
+  font-size: 15px;
+  word-wrap: normal;
+  text-align: left;
+
+}
+
+.mycomment p:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #FFFF99;
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+
+.send-form {
+  text-align: center;
+}
+
+.send-btn {
+  margin: 10px 0 100px 0;
+  text-align: center;
+
+}
+
+input[type="text"] {
+        width: 350px;
+        height: 40px;
+}
+
+.button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 14pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 50px;   /* 余白       */
+  background    : rgba(0, 0, 127, 0.78);     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 5px 5px 5px #666666;  /* 影の設定 */
+  border        : 2px solid rgba(0, 0, 127, 0.78);    /* 枠の指定 */
+}
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : rgba(0, 0, 127, 0.78);     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}

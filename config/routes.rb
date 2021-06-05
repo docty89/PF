@@ -19,8 +19,13 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
-    resources :posts
+
+    resources :posts do
+      resource :favorites, only: [:create, :destroy]
+    end
+
     resources :users, only: [:show, :edit, :update]
+
     get 'chat/:id' => 'chats#show', as: 'chat'
     resources :chats, only: [:create]
   end

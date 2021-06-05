@@ -22,6 +22,21 @@
   </div>
 
   <div class="field">
+    <%= f.label "郵便番号" %><br>
+    <%= f.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label "都道府県" %><br>
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label "市区町村" %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
     <%= f.label "パスワード" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %>文字以上)</em>

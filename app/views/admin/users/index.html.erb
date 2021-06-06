@@ -1,0 +1,38 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-8 my-1">
+      <h3>ユーザ一覧</h3>
+
+      <table class="table-light table table-hover ">
+        <thead class="thead-light">
+          <tr>
+            <th>ユーザID</th>
+            <th>名前</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= link_to user.name, admin_user_path(user) %></td>
+              <td><%= user.email %></td>
+              <td>
+                <% if user.is_deleted == false %>
+                <p class="margin">
+                  有効
+                </p>
+                <% else %>
+                <p class="margin">
+                  退会
+                </p>
+                <% end %>
+              </td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

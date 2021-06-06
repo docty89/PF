@@ -1,0 +1,59 @@
+<%= notice %>
+<div class="container my-4">
+
+  <div class="row">
+    <div class="col-md-8 col-xs-offset-1">
+      <h3 class="mt-2"><%= @user.name %>さんの詳細</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table-light table table-hover">
+        <thead class="thead-light">
+        <tr class="col-md-10">
+          <th>ユーザID</th>
+          <td><%= @user.id %></td>
+        </tr>
+        <tr>
+          <th>名前</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <td><%= @user.postal_code %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @user.prefecture_code %><%= @user.city %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th>ステータス</th>
+          <td>
+            <% if @user.is_deleted == false %>
+              <span class="active_color label label-primary">
+                有効会員
+              </span>
+            <% else %>
+              <span class="inactive_color label label-danger">
+                退会済み
+              </span>
+            <% end %>
+          </td>
+        </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 offset-md-2 text-center">
+      <%= link_to "編集する", edit_admin_user_path(@user), class: "btn btn-success" %>
+    </div>
+  </div>
+
+</div>

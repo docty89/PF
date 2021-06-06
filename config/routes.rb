@@ -24,7 +24,12 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
 
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+      member do
+        get :quit_confirm
+        patch :quit
+      end
+    end
 
     get 'chat/:id' => 'chats#show', as: 'chat'
     resources :chats, only: [:create]

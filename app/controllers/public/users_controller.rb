@@ -13,6 +13,18 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def quit_confirm
+
+  end
+
+  def quit
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会完了"
+    redirect_to root_path
+  end
+
   def update
     @user = User.find(params[:id])
     @user.update(user_params)

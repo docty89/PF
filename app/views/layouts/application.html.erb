@@ -30,6 +30,12 @@
               <li class="nav-item">
                 <%= link_to "マイページ", user_path(current_user.id), class: 'nav-link text-dark' %>
               </li>
+            <% elsif admin_signed_in? %>
+              <li class="nav-item mr-5 pt-2">管理者としてログイン中</li>
+              <li class="nav-item ml-1"><%= link_to "ユーザ一覧", admin_users_path, class: 'btn btn-light btn-ms nav-link fas fa-users' %></li>
+              <li class="nav-item ml-1"><%= link_to "管理者トップ", admin_root_path , class: 'btn btn-light btn-ms nav-link fas fa-history' %></li>
+              <li class="nav-item ml-1"><%= link_to "ジャンル一覧", admin_genres_path, class: 'btn btn-light btn-ms nav-link fas fa-list-alt' %></li>
+              <li class="nav-item ml-1"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-light btn-ms nav-link fas fa-sign-out-alt' %></li>
             <% else %>
               <li class="nav-item">
                 <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
@@ -46,6 +52,7 @@
     <main class="md-auto container">
     <%= yield %>
     </main>
+    <div style="margin-bottom:50px;"></div>
     <footer class="bg-dark text-white pt-3">
       <div class="container">
         <div class="row no-gutters">

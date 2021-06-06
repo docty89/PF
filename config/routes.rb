@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   # }
 
   namespace :admin do
-
+    root to: 'homes#top'
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
+    resources :users, only: [:index, :show, :edit, :update]
   end
 
   scope module: :public do
@@ -34,6 +36,5 @@ Rails.application.routes.draw do
     get 'chat/:id' => 'chats#show', as: 'chat'
     resources :chats, only: [:create]
   end
-    # resources :users, only: [:show, :edit, :update]
 
 end

@@ -9,6 +9,16 @@ class Public::UsersController < ApplicationController
     @favorite_list = Post.find(favorites)
   end
 
+  def follows
+    user = User.find(params[:id])
+    @users = user.followings
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -33,6 +43,6 @@ class Public::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :name, :postal_code, :prefecture_code, :city, :body, :is_deleted, :profile_image_id)
+    params.require(:user).permit(:email, :name, :postal_code, :prefecture_code, :city, :body, :is_deleted, :profile_image)
   end
 end

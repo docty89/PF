@@ -17,6 +17,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @genre = Genre.find(@post.genre_id)
   end
 
   def edit
@@ -35,9 +36,10 @@ class Public::PostsController < ApplicationController
     redirect_to posts_path
   end
 
+
   private
   def post_params
-  params.require(:post).permit(:price, :image, :name, :body)
+  params.require(:post).permit(:price, :image, :name, :body, :genre_id)
   end
 
 end

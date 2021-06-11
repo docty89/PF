@@ -9,8 +9,30 @@ class Public::UsersController < ApplicationController
     @favorite_list = Post.find(favorites)
   end
 
+  def follows
+    user = User.find(params[:id])
+    @users = user.followings
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
+  end
+
   def edit
     @user = User.find(params[:id])
+  end
+
+  def quit_confirm
+
+  end
+
+  def quit
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会完了"
+    redirect_to root_path
   end
 
   def update
@@ -21,6 +43,6 @@ class Public::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :profile_image, :body)
+    params.require(:user).permit(:email, :name, :postal_code, :prefecture_code, :city, :body, :is_deleted, :profile_image)
   end
 end

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   # }
 
   namespace :admin do
-
+    root to: 'homes#top'
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
+    resources :users, only: [:index, :show, :edit, :update]
   end
 
   scope module: :public do
@@ -24,11 +26,20 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
 
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+      member do
+        get :quit_confirm
+        patch :quit
+      end
+      resource :relationships, only: [:create, :destroy]
+      # get :follows, on: :member #フォロー一覧
+      # get :followers, on: :member　#フォロワー一覧
+    end
 
     get 'chat/:id' => 'chats#show', as: 'chat'
     resources :chats, only: [:create]
   end
-    # resources :users, only: [:show, :edit, :update]
+
+  get '/search' => 'search#search'
 
 end

@@ -26,15 +26,14 @@
       <% end %>
     <% end %>
   </div>
-
-  <div class="send-form">
   <%= form_with model: @chat do |f| %>
+  <div class="send-form">
     <%= f.text_field :message %>
     <%= f.hidden_field :room_id %>
   </div>
   <div class="send-btn">
     <%= f.submit "送信する", class: 'button' %>
-  <% end %>
   </div>
+  <% end %>
 
 </div>

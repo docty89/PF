@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .star-right {
-//   border: 2px solid;
-//   border-color: #000000;
-  
-// }
+.star_yellow {
+  color: #FF9900;
+}
+
+.link_none:hover {
+  text-decoration: none;
+}

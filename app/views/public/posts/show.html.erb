@@ -1,7 +1,8 @@
-<div class="post-body" id="post_<%= @post.id %>">
-  <%= attachment_image_tag @post, :image %>
+<div>
+  <%= attachment_image_tag @post, :image, :fill, 150, 150 %>
+  <p>ジャンル：<%= @genre.name %></p>
   <p>食材名：<%= @post.name %></p>
-  <p>価格:<%=@post.price %></p>
+  <p>価格:<%= @post.price.to_s(:delimited) %>円</p>
   <p>説明：<%= @post.body %></p>
   <p>投稿ユーザー画像:<%= attachment_image_tag @post.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpeg" %></p>
   <p>ユーザーネーム：<%= @post.user.name %></p>

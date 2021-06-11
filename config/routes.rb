@@ -31,10 +31,15 @@ Rails.application.routes.draw do
         get :quit_confirm
         patch :quit
       end
+      resource :relationships, only: [:create, :destroy]
+      # get :follows, on: :member #フォロー一覧
+      # get :followers, on: :member　#フォロワー一覧
     end
 
     get 'chat/:id' => 'chats#show', as: 'chat'
     resources :chats, only: [:create]
   end
+
+  get '/search' => 'search#search'
 
 end

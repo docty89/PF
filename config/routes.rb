@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'maps/index'
   devise_for :admins
   devise_for :users
   # root to: 'homes#top'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
   end
 
+
   scope module: :public do
     root to: 'homes#top'
 
@@ -35,6 +37,8 @@ Rails.application.routes.draw do
       # get :follows, on: :member #フォロー一覧
       # get :followers, on: :member　#フォロワー一覧
     end
+
+    resources :maps, only: [:index]
 
     get 'chat/:id' => 'chats#show', as: 'chat'
     resources :chats, only: [:create]

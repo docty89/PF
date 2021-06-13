@@ -1,4 +1,4 @@
-<div>
+<div id="post_<%= @post.id %>">
   <%= attachment_image_tag @post, :image, :fill, 150, 150 %>
   <p>ジャンル：<%= @genre.name %></p>
   <p>食材名：<%= @post.name %></p>
@@ -7,7 +7,7 @@
   <p>投稿ユーザー画像:<%= attachment_image_tag @post.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpeg" %></p>
   <p>ユーザーネーム：<%= @post.user.name %></p>
   <div class="favorite"><%= render "public/favorites/favorite", post: @post %></div>
-  <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+  <p>投稿日：<%= l @post.created_at, format: :long %></p>
   <% if @post.user == current_user %>
     <%= link_to "投稿削除", post_path(@post), method: :delete %>
     |

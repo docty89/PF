@@ -5,3 +5,9 @@ ja:
       short: "%H:%M"
       middle: "%m/%d"
       long: "%Y/%m/%d"
+  enums:
+    post:
+      storage:
+        常温: "常温"
+        冷蔵: "冷蔵"
+        冷凍: "冷凍"

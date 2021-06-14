@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2021_06_10_052651) do
     t.string "name"
     t.string "title"
     t.text "body"
+    t.integer "storage"
+    t.integer "expired"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

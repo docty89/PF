@@ -8,6 +8,8 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :title
       t.text :body
+      t.integer :storage
+      t.integer :expired
 
       t.timestamps
     end

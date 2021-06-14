@@ -73,6 +73,9 @@ gem 'rails-i18n'
 gem 'jp_prefecture' # 都道府県コードから都道府県名を変換するgem
 gem 'geocoder'
 gem 'dotenv-rails'
+gem 'enum_help'
+gem 'faker'
+gem 'gimei'
 
 group :production do
   gem 'mysql2'

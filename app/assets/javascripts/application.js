@@ -37,3 +37,5 @@ $(function() {
 $(document).on('turbolinks:load', function(){
   $('.main-visual-content').slideDown(3000);
 });
+
+

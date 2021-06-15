@@ -44,8 +44,9 @@ class Public::PostsController < ApplicationController
 
 
   private
+
   def post_params
-  params.require(:post).permit(:price, :image, :name, :body, :genre_id, :storage, :expired)
+    params.require(:post).permit(:price, :image, :name, :body, :genre_id, :storage, :expired)
   end
 
 end

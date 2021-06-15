@@ -14,6 +14,12 @@
       <p><%= link_to "フォローする", user_relationships_path(@user), method: :post %></p>
     <% end %>
   <% end %>
+  <p><%= @user.body %></p>
+  <p>性別：<%= @user.sex %></p>
+  <p>登録日時：<%= l @user.created_at, format: :long %></p>
+  <p>都道府県：<%= @user.prefecture_code %></p>
+  <p>市区町村：<%= @user.city %></p>
+
 </div>
 
 <% @posts.each do |post| %>

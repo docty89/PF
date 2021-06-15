@@ -51,10 +51,9 @@ ActiveRecord::Schema.define(version: 2021_06_10_052651) do
     t.integer "price"
     t.string "image_id"
     t.string "name"
-    t.string "title"
     t.text "body"
     t.integer "storage"
-    t.integer "expired"
+    t.date "expired"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -90,7 +89,6 @@ ActiveRecord::Schema.define(version: 2021_06_10_052651) do
     t.string "prefecture_code", null: false
     t.string "city", null: false
     t.text "body"
-    t.string "telephone_number"
     t.boolean "is_deleted", default: false, null: false
     t.string "profile_image_id"
     t.datetime "created_at", null: false

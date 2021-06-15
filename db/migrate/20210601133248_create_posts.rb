@@ -6,10 +6,9 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.integer :price
       t.string :image_id
       t.string :name
-      t.string :title
       t.text :body
       t.integer :storage
-      t.integer :expired
+      t.date :expired
 
       t.timestamps
     end

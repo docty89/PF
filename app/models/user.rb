@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :user_rooms
   has_many :chats
   has_many :favorites, dependent: :destroy
+  has_many :favorite_posts, through: :favorites, source: :post
+
 
   # ====================自分がフォローしているユーザーとの関連 ===================================
   #フォローする側のUserから見て、フォローされる側のUserを(中間テーブルを介して)集める。なので親はfollowing_id(フォローする側)

@@ -12,7 +12,13 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    if params[:id]
+      @genre = Genre.find(params[:id])
+      @posts = @genre.posts.order(created_at: :desc)
+    else
+      @posts = Post.all.order(created_at: :desc)
+    end
+    @genres = Genre.all
   end
 
   def show
@@ -39,7 +45,7 @@ class Public::PostsController < ApplicationController
 
   private
   def post_params
-  params.require(:post).permit(:price, :image, :name, :body, :genre_id)
+  params.require(:post).permit(:price, :image, :name, :body, :genre_id, :storage, :expired)
   end
 
 end

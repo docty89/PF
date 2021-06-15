@@ -4,7 +4,7 @@
     <% @chats.each do |chat| %>
       <% if chat.user_id == current_user.id %>
       <div class="mycomment">
-        <p><%= chat.message %></p>
+        <p class="text-break"><%= chat.message %></p>
       </div>
       <div>
         <p><%= l chat.created_at, format: :short %></p>
@@ -16,7 +16,7 @@
       </div>
         <div class="chatting">
           <div class="says">
-            <p><%= chat.message %></p>
+            <p class="text-break"><%= chat.message %></p>
           </div>
           <div>
             <p><%= l chat.created_at, format: :short %></p>

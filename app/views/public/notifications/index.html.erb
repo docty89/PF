@@ -1,0 +1,31 @@
+<div class="text-center">
+  <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+  <!--自分の投稿に対するいいね、コメントは通知に表示しない-->
+
+  <% if notifications.exists? %>
+  <% notifications.each do |notification| %>
+  <% visitor = notification.visitor %>
+  <% visited = notification.visited %>
+
+  <div class='m-2'>
+    <%= link_to user_path(visitor) do %>
+      <span><%= attachment_image_tag visitor, :profile_image, class:"visitor_user_image", fallback: "no_image.jpg" %></span>
+      <%= visitor.name %>
+    <% end %>
+    <span>さんが</span>
+
+    <% case notification.action %>
+      <% when 'follow' then %>
+        <%= "あなたをフォローしました" %>
+      <% when 'chat' then %>
+        <%= link_to 'あなたにメッセージ', chat_path(notification.visitor), style:"font-weight: bold;", class: "border-bottom" %>
+        <%= "を送りました" %>
+    <% end %>
+    <span><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span><br>
+  </div>
+  <% end %>
+  <%= paginate notifications %>
+  <% else %>
+   <p>通知はありません</p>
+  <% end %>
+</div>

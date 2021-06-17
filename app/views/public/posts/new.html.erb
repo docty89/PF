@@ -10,6 +10,8 @@
   <%= f.select :storage, Post.storages.keys, prompt: "--選択してください--" %>
   <h4>消費期限</h4>
   <%= f.date_select :expired %>
+  <h4>都道府県</h4>
+  <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
   <h4>価格</h4>
   <%= f.text_field :price %>円
   <h4>説明</h4>

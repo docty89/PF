@@ -1,22 +1,9 @@
-      <%= search_form_for @q, url: search_posts_path do |f| %>
-        <%= f.search_field :name_or_body_cont %>
-        <%= f.select :prefecture_code_eq, options_from_collection_for_select(JpPrefecture::Prefecture.all, :code, :name), prompt: "地域" %>
-        <%= f.submit :"検索" %>
-      <% end %>
 <div class="container">
   <div class="row">
-    <div class="col-md-auto">
-      <div class="list-group mt-3">
-          <button type="button" class="list-group-item active disabled">ジャンル別</button>
-        <% @genres.each do |genre| %>
-          <button type="button" class="list-group-item list-group-item-action"><%= link_to genre.name, posts_path(id: genre) %></button>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-md-auto">
-      <table class="table table-light table-hover mt-3">
+    <div class="col-md-8">
+      <table class="table table-light table-hover mt-4">
         <tbody>
-          <% @posts.each do |post| %>
+          <% @results.each do |post| %>
             <tr>
               <td>
                 <%= link_to post_path(post) do %>

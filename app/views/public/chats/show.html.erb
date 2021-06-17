@@ -12,7 +12,7 @@
       <% else %>
     <div class="balloon6">
       <div class="faceicon">
-        <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpeg" %>
+        <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg" %>
       </div>
         <div class="chatting">
           <div class="says">
@@ -26,7 +26,7 @@
       <% end %>
     <% end %>
   </div>
-  <%= form_with model: @chat do |f| %>
+  <%= form_with model: [@user, @chat] do |f| %>
   <div class="send-form">
     <%= f.text_field :message %>
     <%= f.hidden_field :room_id %>

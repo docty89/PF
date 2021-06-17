@@ -20,16 +20,27 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-            <%= form_with url:search_path, method: :get, local: true do |f| %>
-              <%= f.text_field :keyword, value: @keyword %>
-              <%= f.submit :"検索" %>
-            <% end %>
+
+            <!--</%= form_with url:search_path, method: :get, local: true do |f| %>-->
+            <!--  </%= f.text_field :keyword, value: @keyword %>-->
+            <!--  </%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :, :name %>-->
+            <!--  </%= f.submit :"検索" %>-->
+            <!--</% end %>-->
+
             <% if user_signed_in? %>
               <li class="nav-item">
                 <%= link_to "新規投稿", new_post_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
                 <%= link_to "投稿一覧", posts_path, class: 'nav-link text-dark' %>
+              </li>
+              <li>
+              <% if unchecked_notifications.any? %>
+                <span>
+                  <i class="fas fa-circle n-circle"></i>
+                </span>
+              <% end %>
+                <%= link_to "通知一覧", notifications_path, class: 'nav-link text-dark' %>
               </li>
               <li class="navitem">
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>

@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   attachment :profile_image
-  enum sex: { "男性": 0, "女性": 1}
+  enum sex: { "男性": 0, "女性": 1, "未回答": 2}
 
   has_many :user_rooms
   has_many :chats

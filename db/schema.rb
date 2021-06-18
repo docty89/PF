@@ -101,7 +101,6 @@ ActiveRecord::Schema.define(version: 2021_06_16_033244) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.integer "sex"
-    t.integer "postal_code", null: false
     t.string "prefecture_code", null: false
     t.string "city", null: false
     t.text "body"

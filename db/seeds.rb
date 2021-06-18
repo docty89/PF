@@ -19,7 +19,6 @@ Admin.create!(
     email: "user#{n}@test.com",
     password: '000000',
     password_confirmation: '000000',
-    postal_code: Faker::Address.postcode,
     prefecture_code: Gimei.prefecture.kanji,
     city: Gimei.city.kanji
   )

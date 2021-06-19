@@ -1,3 +1,23 @@
+<ul class="nav nav-tabs justify-content-center">
+  <li class="nav-item">
+    <%= link_to "プロフィール", user_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="#">通知一覧</a>
+  </li>
+  <li class="nav-item">
+    <%= link_to "お気に入り", user_favorites_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "フォロー中", user_followings_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "フォロワー", user_followers_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "プロフィール編集", edit_user_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+</ul>
 <div class="text-center">
   <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
   <!--自分の投稿に対するいいね、コメントは通知に表示しない-->

@@ -24,10 +24,10 @@
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-venus-mars"></i>
                       </span>
                     </div>
-                    <%= f.select :sex, User.sexes.keys.map %>
+                    <%= f.select :sex, User.sexes.keys.map, prompt: "性別" %>
                   </div> <!-- input-group.// -->
                 </div> <!-- form-group// -->
               </div>
@@ -39,10 +39,10 @@
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-globe-asia"></i>
                       </span>
                     </div>
-                    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+                    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, prompt: "都道府県" %>
                   </div> <!-- input-group.// -->
                 </div> <!-- form-group// -->
               </div>
@@ -51,7 +51,7 @@
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-city"></i>
                       </span>
                     </div>
                     <%= f.text_field :city, autofocus: true, autocomplete: "city", class: "form-control", placeholder: "市区町村", type: "city" %>

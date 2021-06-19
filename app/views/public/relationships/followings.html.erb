@@ -1,3 +1,28 @@
+<ul class="nav nav-tabs justify-content-center">
+  <li class="nav-item">
+    <%= link_to "プロフィール", user_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+  <li class="nav-item">
+  <% if unchecked_notifications.any? %>
+    <span>
+      <i class="fas fa-circle n-circle"></i>
+    </span>
+  <% end %>
+    <%= link_to "通知一覧", notifications_path, class: 'nav-link text-dark' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "お気に入り", user_favorites_path(current_user.id), class: 'nav-link text-dark' %> 
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="#">フォロー中</a>
+  </li>
+  <li class="nav-item">
+    <%= link_to "フォロワー", user_followers_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "プロフィール編集", edit_user_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+</ul>
 <h2>フォロー</h2>
 <% if @users.exists? %>
   <thead>

@@ -9,6 +9,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.text :body
       t.integer :storage
       t.date :expired
+      t.string :prefecture_code
 
       t.timestamps
     end

@@ -1,6 +1,39 @@
+<% if user_signed_in? && current_user.id.to_s == params[:id] %>
+<ul class="nav nav-tabs justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">プロフィール</a>
+  </li>
+  <li class="nav-item">
+  <% if unchecked_notifications.any? %>
+    <span>
+      <i class="fas fa-circle n-circle"></i>
+    </span>
+  <% end %>
+    <%= link_to "通知一覧", notifications_path, class: 'nav-link text-dark' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "お気に入り", user_favorites_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "フォロー中", user_followings_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "フォロワー", user_followers_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "プロフィール編集", edit_user_path(current_user.id), class: 'nav-link text-dark' %>
+  </li>
+</ul>
+<% end %>
+
+
+
+
+
+
 <div>
   <h3><%= @user.name %></h3>
-  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpeg" %>
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
   <% if @user.id == current_user.id %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>

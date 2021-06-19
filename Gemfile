@@ -76,6 +76,7 @@ gem 'dotenv-rails'
 gem 'enum_help'
 gem 'faker'
 gem 'gimei'
+gem 'ransack'
 
 group :production do
   gem 'mysql2'

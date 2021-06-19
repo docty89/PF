@@ -1,7 +1,10 @@
 class Public::PostsController < ApplicationController
 
+  before_action :set_q, only: [:index, :search]
+
   def new
     @post = Post.new
+    @genres = Genre.all
   end
 
   def create
@@ -42,11 +45,19 @@ class Public::PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def search
+    @results = @q.result
+  end
+
 
   private
 
+  def set_q
+    @q = Post.ransack(params[:q])
+  end
+
   def post_params
-    params.require(:post).permit(:price, :image, :name, :body, :genre_id, :storage, :expired)
+    params.require(:post).permit(:price, :image, :name, :body, :genre_id, :storage, :expired, :prefecture_code)
   end
 
 end

@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
     resources :posts do
       resource :favorites, only: [:create, :destroy]
+      collection do
+        get 'search'
+      end
     end
 
     resources :users, only: [:show, :edit, :update] do
@@ -25,14 +28,16 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
+      get :favorites
+      resources :chats, only: [:create]
     end
-
+    resources :notifications, only: :index
     resources :maps, only: [:index]
 
     get 'chat/:id' => 'chats#show', as: 'chat'
-    resources :chats, only: [:create]
   end
 
-  get '/search' => 'search#search'
+  # get '/search' => 'search#search'
+
 
 end

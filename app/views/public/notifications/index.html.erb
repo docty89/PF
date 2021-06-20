@@ -41,7 +41,7 @@
 
       <div class='m-2'>
         <%= link_to user_path(visitor) do %>
-          <span><%= attachment_image_tag visitor, :profile_image, class:"visitor_user_image", fallback: "no_image.jpg" %></span>
+          <span><%= attachment_image_tag visitor, :profile_image, size: '60x60', class:"visitor_user_image", fallback: "no_image.jpg" %></span>
           <%= visitor.name %>
         <% end %>
         <span>さんが</span>

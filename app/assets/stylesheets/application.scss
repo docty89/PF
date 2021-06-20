@@ -41,3 +41,32 @@ footer {
   padding-top: 0rem;
   color: #efa04c;
 }
+
+* {
+  text-shadow: 1px 1.5px 1px rgba(0,0,0,0.2);
+}
+
+.table_border_radius {
+  border-radius: 5px;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.post-link {
+  width: 200px;
+  height: 150px;
+  margin: 20px auto 0;
+  transition-duration: 0.5s;
+  width: 100%;
+  cursor: pointer;
+}
+
+.post-link:hover {
+  box-shadow: 20px 20px 20px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
+}
+
+a:hover {
+  text-decoration: none;
+}

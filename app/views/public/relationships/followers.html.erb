@@ -23,25 +23,42 @@
     <%= link_to "プロフィール編集", edit_user_path(current_user.id), class: 'nav-link text-dark' %>
   </li>
 </ul>
-<h2>フォロワー</h2>
-<% if @users.exists? %>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td>フォロー数: <%= user.followings.count %></td>
-        <td>フォロワー数: <%= user.followers.count %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
+
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <h4>フォロワー一覧</h4>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <% if @users.exists? %>
+      <table class="table table-light table-hover mt-3">
+        <tbody>
+          <% @users.each do |user| %>
+          <tr class="d-flex align-items-center">
+            <td>
+              <%= link_to user_path(user) do %>
+                <%= attachment_image_tag user, :profile_image, size: '60x60', format: 'jpeg', fallback: "no_image.jpg" %>
+                <span class="ml-4 mr-4"><%= user.name %></span>
+              <% end %>
+            </td>
+            <td class="ml-4">
+                <% if user.followed_by?(current_user) %>
+                  <%= link_to "フォロー済み", user_relationships_path(user), method: :delete, class: 'btn btn-info' %>
+                <% else %>
+                  <%= link_to "フォローする", user_relationships_path(user), method: :post, class: 'btn btn-outline-info' %>
+                <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% else %>
+      <p>フォロワーはいません</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

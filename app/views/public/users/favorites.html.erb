@@ -23,22 +23,22 @@
   </li>
 </ul>
 
-<div class="container">
+<div class="container my-4">
   <div class="row">
-    <div class="col-md-3 text-center">
+    <div class="col-md-4 text-center">
       <h4>お気に入り一覧</h4>
     </div>
   </div>
-  <% if current_user.favorite_posts.exists? %>
-  <div class="row">
-    <div class="col-md-auto">
+  <div class="row justify-content-center">
+    <div. class="col-md-8">
+      <% if current_user.favorite_posts.exists? %>
       <table class="table table-light table-hover mt-3">
         <tbody>
           <% current_user.favorite_posts.each do |post| %>
-            <tr>
+            <tr class="post-link">
               <td>
                 <%= link_to post_path(post) do %>
-                <%= attachment_image_tag post, :image, format: 'jpeg', size: "100x100" %>
+                <%= attachment_image_tag post, :image, format: 'jpeg', size: "130x130" %>
                 <% end %>
               </td>
               <td>
@@ -56,7 +56,7 @@
       </table>
       <% else %>
       <p>お気に入りの投稿はありません</p>
+      <% end %>
     </div>
   </div>
 </div>
-<% end %>

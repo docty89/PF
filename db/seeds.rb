@@ -159,3 +159,4 @@ Genre.create!(
     prefecture_code: Gimei.prefecture
     )
 end
+  

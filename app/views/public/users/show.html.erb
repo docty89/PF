@@ -5,7 +5,7 @@
   </li>
   <li class="nav-item">
   <% if unchecked_notifications.any? %>
-    <span>
+    <span> 
       <i class="fas fa-circle n-circle"></i>
     </span>
   <% end %>
@@ -100,7 +100,7 @@
             <td><%= attachment_image_tag post, :image, format: 'jpeg', size: "50x50" %></td>
             <td><%= post.name %></td>
             <td><%= post.genre.name %></td>
-            <td><%= link_to "編集", edit_post_path(post) %></td>
+            <td><%= link_to "編集", edit_post_path(post), class: 'btn btn-outline-success' %></td>
             <td><%= post.is_active ? "販売中" : "販売終了" %></td>
           </tr>
         </tbody>

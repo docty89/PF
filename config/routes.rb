@@ -31,7 +31,11 @@ Rails.application.routes.draw do
       get :favorites
       resources :chats, only: [:create]
     end
-    resources :notifications, only: :index
+    resources :notifications, only: :index do
+      collection do
+        delete 'destroy_all'
+      end
+    end
     resources :maps, only: [:index]
 
     get 'chat/:id' => 'chats#show', as: 'chat'

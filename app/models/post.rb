@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   attachment :image
+  belongs_to :genre
   has_many :favorites, dependent: :destroy
 
   enum storage: {"常温": 0, "冷蔵": 1, "冷凍": 2}

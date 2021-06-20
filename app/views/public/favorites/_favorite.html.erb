@@ -2,12 +2,12 @@
   <p>
     <i class="fas fa-star star_yellow"></i>
     <%= post.favorites.count %>
-    <%= link_to 'お気に入り登録済み', post_favorites_path(post), method: :delete, remote: true, class:"btn btn-info btn-ms" %>
+    <%= link_to 'お気に入り登録済み', post_favorites_path(post), method: :delete, remote: true, class:"btn btn-warning btn-ms" %>
   </p>
 <% else %>
   <p>
     <i class="far fa-star star_yellow"></i>
     <%= post.favorites.count %>
-    <%= link_to 'お気に入り登録', post_favorites_path(post), method: :post, remote: true, class:"btn btn-light btn-ms" %>
+    <%= link_to 'お気に入り登録', post_favorites_path(post), method: :post, remote: true, class:"btn btn-outline-warning btn-ms" %>
   </p>
 <% end %>

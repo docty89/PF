@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2021_06_16_033244) do
     t.integer "storage"
     t.date "expired"
     t.string "prefecture_code"
+    t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

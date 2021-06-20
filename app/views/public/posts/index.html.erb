@@ -25,7 +25,7 @@
               </td>
               <td>
                 <p><strong><%= post.name %></strong></p>
-                <p></p>
+                <p><%= post.genre.name %></p>
                 <p><%= post.price.to_s(:delimited) %>円</p>
               </td>
               <td id="post_<%= post.id %>">
@@ -39,4 +39,9 @@
       </table>
     </div>
   </div>
+    <div class="row">
+      <div class="center-block mx-auto"><br><br>
+        <%= paginate @posts %>
+      </div>
+     </div>
 </div>

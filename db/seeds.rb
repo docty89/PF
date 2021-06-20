@@ -153,7 +153,7 @@ Genre.create!(
     image: File.open('./app/assets/images/sake.jpg'),
     name: "テスト酒類",
     user_id: 13,
-    genre_id: 1,
+    genre_id: 13,
     price: 29800,
     body: "響　30年",
     prefecture_code: Gimei.prefecture

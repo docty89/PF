@@ -19,7 +19,7 @@ class Public::PostsController < ApplicationController
       @genre = Genre.find(params[:id])
       @posts = @genre.posts.order(created_at: :desc)
     else
-      @posts = Post.all.order(created_at: :desc)
+      @posts = Post.page.order(created_at: :desc).per(10)
     end
     @genres = Genre.all
   end
@@ -57,7 +57,7 @@ class Public::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:price, :image, :name, :body, :genre_id, :storage, :expired, :prefecture_code)
+    params.require(:post).permit(:price, :image, :name, :body, :is_active, :genre_id, :storage, :expired, :prefecture_code)
   end
 
 end

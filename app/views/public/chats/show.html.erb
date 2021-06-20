@@ -3,8 +3,8 @@
   <div class="line-bc">
     <% @chats.each do |chat| %>
       <% if chat.user_id == current_user.id %>
-      <div class="mycomment">
-        <p class="text-break"><%= chat.message %></p>
+      <div class="mycomment text_break">
+        <%= simple_format(h chat.message) %>
       </div>
       <div>
         <p><%= l chat.created_at, format: :short %></p>
@@ -15,8 +15,8 @@
         <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg" %>
       </div>
         <div class="chatting">
-          <div class="says">
-            <p class="text-break"><%= chat.message %></p>
+          <div class="says text-break">
+            <%= simple_format(h chat.message) %>
           </div>
           <div>
             <p><%= l chat.created_at, format: :short %></p>
@@ -28,7 +28,7 @@
   </div>
   <%= form_with model: [@user, @chat] do |f| %>
   <div class="send-form">
-    <%= f.text_field :message %>
+    <%= f.text_area :message, size: "60x5" %>
     <%= f.hidden_field :room_id %>
   </div>
   <div class="send-btn">

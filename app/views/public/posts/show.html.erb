@@ -51,10 +51,19 @@
     <div class="col-md-4 d-flex align-items-center justify-content-center shadow">
       <div><%= attachment_image_tag @post, :image, :fill, 300, 270 %></div>
     </div>
-    <div class="col-md-4 d-flex align-items-center justify-content-center shadow">
+    <div class="col-md-4 justify-content-center shadow">
+      <div>
         <%= form_with model: @post, local: true do |f| %>
-          <%= f.text_area :body, :readonly => true, size: '41x13' %>
+          <%= f.text_area :body, :readonly => true, size: '41x8' %>
         <% end %>
+      </div>
+      <div>
+        <p>投稿者</p>
+        <%= link_to user_path(@post.user_id) do %>
+        <%= attachment_image_tag @user, :profile_image, size: '70x70', format: 'jpeg', fallback: "no_image.jpg" %>&emsp;
+        <%= @post.user.name %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

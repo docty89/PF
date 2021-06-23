@@ -32,7 +32,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <% if current_user.favorite_posts.exists? %>
-      <table class="table table-light table-hover mt-3">
+      <table class="table table-hover mt-3">
         <tbody>
           <% current_user.favorite_posts.each do |post| %>
             <tr class="post-link">
@@ -42,7 +42,10 @@
                 <% end %>
               </td>
               <td>
-                <strong><%= post.name %></strong>
+                <%= link_to post_path(post) do %>
+                <p><strong><%= post.name %></strong></p>
+                <% end %>
+                <p><%= post.genre.name %></p>
                 <p><%= post.price.to_s(:delimited) %>円</p>
               </td>
               <td id="post_<%= post.id %>">

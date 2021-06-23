@@ -27,6 +27,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @genre = Genre.find(@post.genre_id)
+    @user = @post.user
   end
 
   def edit

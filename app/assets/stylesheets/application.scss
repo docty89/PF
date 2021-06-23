@@ -53,33 +53,19 @@ footer {
 }
 
 .post-link {
-  width: 200px;
-  height: 150px;
-  margin: 20px auto 0;
-  transition-duration: 0.5s;
-  width: 100%;
-  cursor: pointer;
+  border: 1px solid white;
 }
 
 .post-link:hover {
-  box-shadow: 20px 20px 20px rgba(0,0,0,0.5);
-  transform: translateY(-10px);
-  transition-duration: 0.5s;
+  border: 2px solid #AAAAAA;
 }
 
 .image-link {
-  width: 200px;
-  height: 150px;
-  margin: 20px auto 0;
-  transition-duration: 0.5s;
-  width: 100%;
-  cursor: pointer;
+  border: 2px solid white;
 }
 
 .image-link:hover {
-  box-shadow: 20px 20px 20px rgba(0,0,0,0.5);
-  transform: translateY(-10px);
-  transition-duration: 0.5s;
+  border: 2px solid #AAAAAA;
 }
 
 a:hover {
@@ -106,7 +92,7 @@ a:hover {
 h4 {
   position: relative;
   padding: 1rem 2rem calc(1rem + 10px);
-  background: #DDDDDD;
+  background: #FFF0F5;
 }
 
 h4:before {

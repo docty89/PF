@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="col-md-9">
-      <table class="table table-light table-hover mt-3">
+      <table class="table mt-3">
         <tbody>
           <% @posts.each do |post| %>
             <tr class="post-link">
@@ -26,7 +26,9 @@
                 <% end %>
               </td>
               <td>
+                <%= link_to post_path(post) do %>
                 <p><strong><%= post.name %></strong></p>
+                <% end %>
                 <p><%= post.genre.name %></p>
                 <p><%= post.price.to_s(:delimited) %>円</p>
               </td>

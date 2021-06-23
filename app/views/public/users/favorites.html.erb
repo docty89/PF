@@ -25,12 +25,12 @@
 
 <div class="container my-4">
   <div class="row">
-    <div class="col-md-4 text-center">
+    <div class="col-md-3 text-center">
       <h4>お気に入り一覧</h4>
     </div>
   </div>
   <div class="row justify-content-center">
-    <div. class="col-md-8">
+    <div class="col-md-8">
       <% if current_user.favorite_posts.exists? %>
       <table class="table table-light table-hover mt-3">
         <tbody>
@@ -54,9 +54,9 @@
           <% end %>
         </tbody>
       </table>
-      <% else %>
-      <p>お気に入りの投稿はありません</p>
-      <% end %>
     </div>
+    <% else %>
+    <p>お気に入りの投稿はありません</p>
+    <% end %>
   </div>
 </div>

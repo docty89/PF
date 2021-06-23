@@ -67,6 +67,54 @@ footer {
   transition-duration: 0.5s;
 }
 
+.image-link {
+  width: 200px;
+  height: 150px;
+  margin: 20px auto 0;
+  transition-duration: 0.5s;
+  width: 100%;
+  cursor: pointer;
+}
+
+.image-link:hover {
+  box-shadow: 20px 20px 20px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
+}
+
 a:hover {
   text-decoration: none;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+h4 {
+  position: relative;
+  padding: 1rem 2rem calc(1rem + 10px);
+  background: #DDDDDD;
+}
+
+h4:before {
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  width: 100%;
+  height: 100%;
+  content: '';
+  border: 4px solid #000;
 }

@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザー情報"
+    attributes:
+      user:
+        name: "ニックネーム"
+        email: "メールアドレス"
+        password: "パスワード"
+        prefecture_code: "都道府県"
+        sex: "性別"

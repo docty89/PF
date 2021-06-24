@@ -1,5 +1,5 @@
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render 'shaerd/error_messages', object: f.object %>
   <div class="container">
     <div class="card-container">
       <div class="card-body">
@@ -16,7 +16,6 @@
                       </span>
                     </div>
                     <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "ニックネーム", type: "name" %>
-                    <div class="invalid-feedback">ニックネームを入力してください</div>
                   </div>
                 </div>
               </div>

@@ -1,5 +1,20 @@
 ja:
   activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            prefecture_code:
+              blank: "を選択してください"
+            storage:
+              blank: "を選択してください"
+        user:
+          attributes:
+            sex:
+              blank: "を選択してください"
+            prefecture_code:
+              blank: "を選択してください"
+            
     models:
       user: "ユーザー情報"
     attributes:
@@ -9,3 +24,11 @@ ja:
         password: "パスワード"
         prefecture_code: "都道府県"
         sex: "性別"
+      post:
+        genre: "ジャンル"
+        name: "食材名"
+        price: "価格"
+        image: "商品画像"
+        body: "説明"
+        storage: "保存方法"
+        prefecture_code: "都道府県"

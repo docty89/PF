@@ -36,6 +36,8 @@ Genre.create!(
     user_id: 1,
     genre_id: 1,
     price: 1000,
+    storage: "冷蔵",
+    expired: "2021-06-30",
     body: "肉汁ブシャー",
     prefecture_code: Gimei.prefecture
   )
@@ -45,6 +47,8 @@ Genre.create!(
     name: "テストホタテ",
     user_id: 2,
     genre_id: 2,
+    storage: "冷蔵",
+    expired: "2021-06-30",
     price: 500,
     body: "パクパクホタテ",
     prefecture_code: Gimei.prefecture
@@ -55,6 +59,8 @@ Genre.create!(
     name: "テスト野菜",
     user_id: 3,
     genre_id: 3,
+    storage: "冷蔵",
+    expired: "2021-06-30",
     price: 300,
     body: "シャキシャキ野菜",
     prefecture_code: Gimei.prefecture
@@ -65,6 +71,8 @@ Genre.create!(
     name: "テスト果物",
     user_id: 4,
     genre_id: 4,
+    storage: "冷蔵",
+    expired: "2021-06-30",
     price: 600,
     body: "しゃりしゃり果物",
     prefecture_code: Gimei.prefecture
@@ -75,6 +83,8 @@ Genre.create!(
     name: "テスト卵",
     user_id: 5,
     genre_id: 5,
+    storage: "冷蔵",
+    expired: "2021-06-30",
     price: 100,
     body: "たまたまたまご",
     prefecture_code: Gimei.prefecture
@@ -85,6 +95,8 @@ Genre.create!(
     name: "テスト米",
     user_id: 6,
     genre_id: 6,
+    storage: "常温",
+    expired: "2021-06-30",
     price: 2000,
     body: "米米CLUB",
     prefecture_code: Gimei.prefecture
@@ -95,6 +107,8 @@ Genre.create!(
     name: "テスト麺類",
     user_id: 7,
     genre_id: 7,
+    storage: "冷蔵",
+    expired: "2021-06-30",
     price: 150,
     body: "チャーシューメーン",
     prefecture_code: Gimei.prefecture
@@ -105,6 +119,8 @@ Genre.create!(
     name: "テストぱん・製菓",
     user_id: 8,
     genre_id: 8,
+    storage: "常温",
+    expired: "2021-06-30",
     price: 300,
     body: "焼きたてジャぱん",
     prefecture_code: Gimei.prefecture
@@ -115,6 +131,8 @@ Genre.create!(
     name: "テスト粉類",
     user_id: 9,
     genre_id: 9,
+    storage: "常温",
+    expired: "2021-06-30",
     price: 200,
     body: "白い粉",
     prefecture_code: Gimei.prefecture
@@ -125,6 +143,8 @@ Genre.create!(
     name: "テスト乾物",
     user_id: 10,
     genre_id: 10,
+    storage: "常温",
+    expired: "2021-06-30",
     price: 3000,
     body: "ポルチーニ",
     prefecture_code: Gimei.prefecture
@@ -135,6 +155,8 @@ Genre.create!(
     name: "テスト調味料",
     user_id: 11,
     genre_id: 11,
+    storage: "常温",
+    expired: "2021-06-30",
     price: 400,
     body: "ガラムマサラ",
     prefecture_code: Gimei.prefecture
@@ -145,6 +167,8 @@ Genre.create!(
     name: "テスト飲料",
     user_id: 12,
     genre_id: 12,
+    storage: "冷蔵",
+    expired: "2021-06-30",
     price: 2500,
     body: "トゲコーラ",
     prefecture_code: Gimei.prefecture
@@ -155,6 +179,8 @@ Genre.create!(
     name: "テスト酒類",
     user_id: 13,
     genre_id: 13,
+    storage: "常温",
+    expired: "2021-06-30",
     price: 29800,
     body: "響　30年",
     prefecture_code: Gimei.prefecture

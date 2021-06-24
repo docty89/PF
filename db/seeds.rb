@@ -17,6 +17,7 @@ Admin.create!(
   User.create!(
     name: Faker::JapaneseMedia::StudioGhibli.unique.character,
     email: "user#{n + 1}@test.com",
+    sex: "男性",
     password: '000000',
     password_confirmation: '000000',
     prefecture_code: Gimei.prefecture.kanji,
@@ -159,4 +160,3 @@ Genre.create!(
     prefecture_code: Gimei.prefecture
     )
 end
-  

@@ -17,9 +17,9 @@ class Public::PostsController < ApplicationController
   def index
     if params[:id]
       @genre = Genre.find(params[:id])
-      @posts = @genre.posts.order(created_at: :desc)
+      @posts = @genre.posts.all.page(params[:page]).per(10)
     else
-      @posts = Post.page.order(created_at: :desc).per(10)
+      @posts = Post.all.page(params[:page]).per(10)
     end
     @genres = Genre.all
   end
@@ -27,6 +27,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @genre = Genre.find(@post.genre_id)
+    @user = @post.user
   end
 
   def edit

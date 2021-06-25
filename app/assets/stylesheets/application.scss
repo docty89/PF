@@ -43,7 +43,7 @@ footer {
 }
 
 * {
-  text-shadow: 1px 1.5px 1px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
 
 .table_border_radius {
@@ -68,6 +68,10 @@ footer {
   border: 2px solid #AAAAAA;
 }
 
+.a {
+  display: block;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -86,7 +90,7 @@ a:hover {
 
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
-  border-radius: 15px;    /*角を丸くする*/
+  border-radius: 15px;  /*角を丸くする*/
 }
 
 h4 {

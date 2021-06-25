@@ -1,10 +1,7 @@
 class Public::FavoritesController < ApplicationController
-
   def create
     @post = Post.find(params[:post_id])
-    if @post.user_id != current_user.id
-     favorite = @post.favorites.new(user_id: current_user.id)
-    end
+    favorite = @post.favorites.new(user_id: current_user.id) if @post.user_id != current_user.id
     favorite.save
   end
 
@@ -13,5 +10,4 @@ class Public::FavoritesController < ApplicationController
     favorite = @post.favorites.find_by(user_id: current_user.id)
     favorite.destroy
   end
-
 end

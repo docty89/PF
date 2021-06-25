@@ -24,15 +24,13 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def quit_confirm
-
-  end
+  def quit_confirm; end
 
   def quit
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    flash[:notice] = "退会完了"
+    flash[:notice] = '退会完了'
     redirect_to root_path
   end
 
@@ -46,7 +44,9 @@ class Public::UsersController < ApplicationController
   end
 
   private
+
   def user_params
-    params.require(:user).permit(:email, :name, :postal_code, :prefecture_code, :city, :body, :is_deleted, :profile_image)
+    params.require(:user).permit(:email, :name, :postal_code, :prefecture_code, :city, :body, :is_deleted,
+                                 :profile_image)
   end
 end

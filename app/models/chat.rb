@@ -21,9 +21,7 @@ class Chat < ApplicationRecord
       action: 'chat'
     )
     # 自分のチャットの場合は、通知済みとする
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
 end

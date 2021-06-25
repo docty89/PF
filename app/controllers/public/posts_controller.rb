@@ -1,6 +1,5 @@
 class Public::PostsController < ApplicationController
-
-  before_action :set_q, only: [:index, :search]
+  before_action :set_q, only: %i[index search]
 
   def new
     @post = Post.new
@@ -57,7 +56,6 @@ class Public::PostsController < ApplicationController
     @results = @q.result
   end
 
-
   private
 
   def set_q
@@ -65,7 +63,7 @@ class Public::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:price, :image, :name, :body, :is_active, :genre_id, :storage, :expired, :prefecture_code)
+    params.require(:post).permit(:price, :image, :name, :body, :is_active, :genre_id, :storage, :expired,
+                                 :prefecture_code)
   end
-
 end

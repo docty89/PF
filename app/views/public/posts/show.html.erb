@@ -1,17 +1,19 @@
 <div class="container my-4">
-  <div class="row">
-    <div class="col-md-3 text-center">
+  <div class="row justify-content-center">
+    <div class="col-md-auto text-center">
       <h4><%= @post.name %></h4>
     </div>
-    <div class="col-md-3" id="post_<%= @post.id %>">
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3 text-center" id="post_<%= @post.id %>">
       <div class="favorite"><%= render "public/favorites/favorite", post: @post %></div>
     </div>
     <div class="col-md-3">
       <% if @post.user == current_user %>
         <%= link_to "投稿削除", post_path(@post), method: :delete, class: 'btn btn-outline-danger' %>
-        <%= link_to "編集", edit_post_path(@post), class: 'btn btn-outline-success' %>
+        <%= link_to "編集", edit_post_path(@post), class: 'btn btn-outline-success ml-4' %>
       <% end %>
-    </div>
+    </div>    
   </div>
   <div class="row justify-content-center">
     <div class="col-md-4 d-flex align-items-center justify-content-center shadow">

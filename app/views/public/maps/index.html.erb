@@ -29,8 +29,11 @@ function initMap(){
 
   map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 35.681236, lng: 139.767125},
-  zoom: 10
+  zoom: 10,
+  clickable: true
   });
+  
+
 }
 
 function codeAddress(){
@@ -53,5 +56,7 @@ function codeAddress(){
     }
   });
 }
+
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>

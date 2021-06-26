@@ -11,7 +11,7 @@
       <div class="list-group mt-3 shadow">
           <button type="button" class="list-group-item list-group-item-secondary">ジャンル別</button>
         <% @genres.each do |genre| %>
-          <button type="button" class="list-group-item btn tbg-c"><%= link_to genre.name, posts_path(id: genre) %></button>
+          <button type="button" class="list-group-item tbg-c"><%= link_to genre.name, posts_path(id: genre) %></button>
         <% end %>
       </div>
     </div>

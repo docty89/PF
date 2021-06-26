@@ -1,6 +1,6 @@
 <% if user_signed_in? && current_user.id.to_s == params[:id] %>
 <ul class="nav nav-tabs justify-content-center">
-  <li class="nav-item">
+  <li class="nav-item nav-pills">
     <a class="nav-link active" href="#">プロフィール</a>
   </li>
   <li class="nav-item">
@@ -31,7 +31,7 @@
 <div class="container my-4">
   <div class="row justify-content-center">
     <div class="col-md-auto">
-      <h4><%= @user.name %>のプロフィール</h4>
+      <h5><%= @user.name %>のプロフィール</h5>
     </div>
   </div>
   <div class="row justify-content-center">
@@ -51,7 +51,7 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div classs="col-md-4">
+    <div classs="col-md-auto">
       <table class="table table-bordered table_border_radius shadow">
         <tbody class="thead-light">
           <tr>
@@ -61,7 +61,7 @@
           <tr>
             <th>自己紹介</th>
             <%= form_with model: @user, local: true do |f| %>
-            <td><%= f.text_area :body, :readonly => true, size: '24x5' %></td>
+            <td><%= f.text_area :body, :readonly => true, size: '21x4' %></td>
             <% end %>
           </tr>
           <tr>
@@ -81,17 +81,17 @@
             <td><%= @user.city %></td>
           </tr>
           <tr>
-            <th>フォロー数</th>
+            <th>フォロー</th>
             <td><%= @user.followings.count %></td>
           </tr>
           <tr>
-            <th>フォロワー数</th>
+            <th>フォロワー</th>
             <td><%= @user.followers.count %></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-auto">
       <table class="table table_border_radius shadow">
         <thead class="thead-light">
           <tr>

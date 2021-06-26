@@ -2,25 +2,3 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main-visual {
-  width: 100%;
-  height: 700px;
-  background-image: image-url("image1.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.main-visual-content {
-  display: none;
-  width: 100%;
-  height: 700px;
-  color: white;
-  font-size: 28px;
-  text-align: center;
-  padding-top: 270px;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.top-text {
-  text-shadow: #FC0 1px 0 10px;
-}

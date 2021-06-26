@@ -16,8 +16,10 @@
                 <% end %>
               </td>
               <td>
+                <%= link_to post_path(post) do %>
                 <p class="food-name"><strong><%= post.name %></strong></p>
                 <p><%= post.price.to_s(:delimited) %>円</p>
+                <% end %>
               </td>
               <td id="post_<%= post.id %>" class="align-bottom">
                 <p>投稿日<%= l post.created_at, format: :middle %></p>

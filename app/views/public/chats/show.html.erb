@@ -27,12 +27,14 @@
     <% end %>
   </div>
   <%= form_with model: [@user, @chat] do |f| %>
-  <div class="send-form">
-    <%= f.text_area :message, size: "60x5" %>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+    <%= f.text_area :message, class: 'form-control' %>
     <%= f.hidden_field :room_id %>
+    </div>
   </div>
-  <div class="send-btn">
-    <%= f.submit "送信する", class: 'button' %>
+  <div class="text-center mt-2">
+    <%= f.submit "送信する", class: 'btn btn-outline-primary' %>
   </div>
   <% end %>
 

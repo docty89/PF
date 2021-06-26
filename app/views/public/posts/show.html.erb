@@ -1,16 +1,71 @@
-<div>
-  <%= attachment_image_tag @post, :image, :fill, 150, 150 %>
-  <p>ジャンル：<%= @genre.name %></p>
-  <p>食材名：<%= @post.name %></p>
-  <p>価格:<%= @post.price.to_s(:delimited) %>円</p>
-  <p>説明：<%= @post.body %></p>
-  <p>投稿ユーザー画像:<%= attachment_image_tag @post.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpeg" %></p>
-  <p>ユーザーネーム：<%= @post.user.name %></p>
-  <div class="favorite"><%= render "public/favorites/favorite", post: @post %></div>
-  <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @post.user == current_user %>
-    <%= link_to "投稿削除", post_path(@post), method: :delete %>
-    |
-    <%= link_to "編集", edit_post_path(@post) %>
-  <% end %>
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-md-auto text-center">
+      <h5><%= @post.name %></h5>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3 text-center" id="post_<%= @post.id %>">
+      <div class="favorite"><%= render "public/favorites/favorite", post: @post %></div>
+    </div>
+    <div class="col-md-3">
+      <% if @post.user == current_user %>
+        <%= link_to "投稿削除", post_path(@post), method: :delete, class: 'btn btn-outline-danger', data: {confirm: "削除しますか？"} %>
+        <%= link_to "編集", edit_post_path(@post), class: 'btn btn-outline-success ml-4' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-auto d-flex align-items-center justify-content-center shadow tbg-c">
+      <div><%= attachment_image_tag @post, :image, size: '300x270' %></div>
+    </div>
+    <div class="col-md-auto justify-content-center shadow tbg-c">
+      <div class="mt-4">
+        <%= form_with model: @post, local: true do |f| %>
+          <%= f.text_area :body, :readonly => true, size: '40x7' %>
+        <% end %>
+      </div>
+      <div>
+        <p>投稿者</p>
+        <%= link_to user_path(@post.user_id) do %>
+        <%= attachment_image_tag @user, :profile_image, size: '70x70', format: 'jpeg', fallback: "no_image.jpg" %>&emsp;&emsp;
+        <span class="food-name"><%= @post.user.name %></span>
+        <% end %>
+      </div>
+    </div>
+    <div classs="col-md-4">
+      <table class="table table-bordered shadow mb-0">
+        <tbody class="thead-light">
+          <tr>
+            <th>価格</th>
+            <td><%= @post.price.to_s(:delimited) %>円</td>
+          </tr>
+          <tr>
+            <th>登録日時</th>
+            <td><%= l @post.created_at, format: :long %></td>
+          </tr>
+          <tr>
+            <th>ジャンル</th>
+            <td><%= @genre.name %></td>
+          </tr>
+          <tr>
+            <th>保存方法</th>
+            <td><%= @post.storage %></td>
+          </tr>
+          <tr>
+            <th>消費期限</th>
+            <td><%= @post.expired %></td>
+          </tr>
+          <tr>
+            <th>都道府県</th>
+            <td><%= @post.prefecture_code %></td>
+          </tr>
+          <tr>
+            <th>ステータス</th>
+            <td><%= @post.is_active ? "販売中" : "販売終了" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

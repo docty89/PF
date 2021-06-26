@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_052651) do
+ActiveRecord::Schema.define(version: 2021_06_16_033244) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -45,14 +45,32 @@ ActiveRecord::Schema.define(version: 2021_06_10_052651) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "relationship_id"
+    t.integer "chat_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_notifications_on_chat_id"
+    t.index ["relationship_id"], name: "index_notifications_on_relationship_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "genre_id"
     t.integer "price"
     t.string "image_id"
     t.string "name"
-    t.string "title"
     t.text "body"
+    t.integer "storage"
+    t.date "expired"
+    t.string "prefecture_code"
+    t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -84,11 +102,9 @@ ActiveRecord::Schema.define(version: 2021_06_10_052651) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.integer "sex"
-    t.integer "postal_code", null: false
     t.string "prefecture_code", null: false
     t.string "city", null: false
     t.text "body"
-    t.string "telephone_number"
     t.boolean "is_deleted", default: false, null: false
     t.string "profile_image_id"
     t.datetime "created_at", null: false

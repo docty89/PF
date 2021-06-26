@@ -17,20 +17,151 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
- // body {
- //   display: flex;
- //   flex-flow: column;
- //   min-height: 100vh;
- // }
+  body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+  }
 
- // main {
- //   flex: 1;
- // }
+  // .table {
+  //   background-color: #FFFAF0;
+  // }
 
- // .container {
- //   width: 1000px;
- //   margin: 0 auto;
- // }
+  // .tbg-c {
+  //   background-color: #FFFAF0;
+  // }
+
 footer {
   margin-top: auto;
+}
+
+.n-circle {
+  position: absolute;
+  padding-left: 0rem;
+  padding-top: 0rem;
+  color: #efa04c;
+}
+
+* {
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.table_border_radius {
+  border-radius: 5px;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.post-link {
+  border: 1px solid white;
+}
+
+.post-link:hover {
+  border: 2px solid #AAAAAA;
+}
+
+.image-link {
+  border: 2px solid white;
+}
+
+.image-link:hover {
+  border: 2px solid #AAAAAA;
+}
+
+.a {
+  display: block;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;  /*角を丸くする*/
+}
+
+h5 {
+  padding: 0.5rem 2rem;
+  border-top: 4px double #000;
+  border-bottom: 4px double #000;
+}
+
+// h4:before {
+//   position: absolute;
+//   top: -7px;
+//   left: -7px;
+//   width: 100%;
+//   height: 100%;
+//   content: '';
+//   border: 4px solid #000;
+// }
+
+.field_with_errors {
+  display: inline;
+  input {
+    @extend .is-invalid;
+  }
+}
+
+.box {
+  min-height: 100vh;
+}
+
+.main-visual {
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  background-image: image-url("image1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.image1 {
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  background-image: image-url("food3.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.image2 {
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  background-image: image-url("food4.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.main-visual-content {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  color: white;
+  font-size: 28px;
+  text-align: center;
+  padding-top: 220px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.top-text {
+  text-shadow: #FC0 1px 0 10px;
+}
+
+.food-name {
+  font-size: 21px;
 }

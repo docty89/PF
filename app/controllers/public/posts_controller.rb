@@ -1,23 +1,35 @@
 class Public::PostsController < ApplicationController
-
+  before_action :set_q, only: %i[index search]
   def new
     @post = Post.new
+    @genres = Genre.all
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to post_path(@post)
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      @genres = Genre.all
+      render :new
+    end
   end
 
   def index
-    @posts = Post.all
+    if params[:id]
+      @genre = Genre.find(params[:id])
+      @posts = @genre.posts.all.page(params[:page]).per(10)
+    else
+      @posts = Post.all.page(params[:page]).per(10)
+    end
+    @genres = Genre.all
   end
 
   def show
     @post = Post.find(params[:id])
     @genre = Genre.find(@post.genre_id)
+    @user = @post.user
   end
 
   def edit
@@ -26,8 +38,11 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post)
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -36,10 +51,18 @@ class Public::PostsController < ApplicationController
     redirect_to posts_path
   end
 
-
-  private
-  def post_params
-  params.require(:post).permit(:price, :image, :name, :body, :genre_id)
+  def search
+    @results = @q.result
   end
 
+  private
+
+  def set_q
+    @q = Post.ransack(params[:q])
+  end
+
+  def post_params
+    params.require(:post).permit(:price, :image, :name, :body, :is_active, :genre_id, :storage, :expired,
+                                 :prefecture_code)
+  end
 end

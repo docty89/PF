@@ -14,22 +14,39 @@
 //= require popper
 //= require bootstrap-sprockets
 
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-  $(document).on('turbolinks:load', () => {
-    $('#user_postal_code').jpostal({
-      postcode : [
-        '#user_postal_code'
-      ],
-      address: {
-        "#user_prefecture_code": "%3", // # 都道府県が入力される
-        "#user_city"           : "%4%5", // # 市区町村と町域が入力される
-        "#user_street"         : "%6%7" // # 大口事務所の番地と名称が入力される
-      }
-    });
+
+$(document).on('turbolinks:load', function(){
+  $('.main-visual-content').slideDown(3000);
+});
+
+$(document).on('turbolinks:load', function () {
+  $(".theTarget").skippr({
+    // スライドショーの変化 ("fade" or "slide")
+    transition : 'fade',
+    // 変化に係る時間(ミリ秒)
+    speed : 3000,
+    // easingの種類
+    easing : 'easeOutQuart',
+    // ナビゲーションの形("block" or "bubble")
+    navType : 'block',
+    // 子要素の種類('div' or 'img')
+    childrenElementType : 'div',
+    // ナビゲーション矢印の表示(trueで表示)
+    arrows : true,
+    // スライドショーの自動再生(falseで自動再生なし)
+    autoPlay : true,
+    // 自動再生時のスライド切替間隔(ミリ秒)
+    autoPlayDuration : 6000,
+    // キーボードの矢印キーによるスライド送りの設定(trueで有効)
+    keyboardOnAlways : true,
+    // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
+    hidePrevious : false
   });
 });
+

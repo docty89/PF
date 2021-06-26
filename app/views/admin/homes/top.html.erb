@@ -1,1 +1,35 @@
-<h3>管理者トップ</h3>
+<div class="container my-4">
+  <div class="row">
+    <h3>投稿一覧</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <table class="table table-hover mt-3">
+        <tbody>
+          <% @posts.each do |post| %>
+            <tr class="post-link">
+              <td>
+                <%= attachment_image_tag post, :image, format: 'jpeg', size: "130x130" %>
+              </td>
+              <td>
+                <p><strong><%= post.name %></strong></p>
+                <p><%= post.genre.name %></p>
+                <p><%= post.price.to_s(:delimited) %>円</p>
+              </td>
+              <td>
+                <p>投稿日<%= l post.created_at, format: :middle %></p>
+                <p>更新日<%= l post.updated_at, format: :middle %></p>
+                <p><%= link_to "投稿削除", admin_post_path(post), method: :delete, class: 'btn btn-outline-danger' %></p>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    <div class="row">
+      <div class="center-block mx-auto"><br><br>
+        <%= paginate @posts %>
+      </div>
+    </div>
+</div>

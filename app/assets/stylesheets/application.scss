@@ -23,14 +23,14 @@
     min-height: 100vh;
   }
 
- // main {
- //   flex: 1;
- // }
+  // .table {
+  //   background-color: #FFFAF0;
+  // }
 
-// .container {
-//   width: 1000px;
-//   margin: 0 auto;
-// }
+  // .tbg-c {
+  //   background-color: #FFFAF0;
+  // }
+
 footer {
   margin-top: auto;
 }
@@ -93,25 +93,75 @@ a:hover {
   border-radius: 15px;  /*角を丸くする*/
 }
 
-h4 {
-  position: relative;
-  padding: 1rem 2rem calc(1rem + 10px);
-  background: #FFF0F5;
+h5 {
+  padding: 0.5rem 2rem;
+  border-top: 4px double #000;
+  border-bottom: 4px double #000;
 }
 
-h4:before {
-  position: absolute;
-  top: -7px;
-  left: -7px;
-  width: 100%;
-  height: 100%;
-  content: '';
-  border: 4px solid #000;
-}
+// h4:before {
+//   position: absolute;
+//   top: -7px;
+//   left: -7px;
+//   width: 100%;
+//   height: 100%;
+//   content: '';
+//   border: 4px solid #000;
+// }
 
 .field_with_errors {
   display: inline;
   input {
     @extend .is-invalid;
   }
+}
+
+.box {
+  min-height: 100vh;
+}
+
+.main-visual {
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  background-image: image-url("image1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.image1 {
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  background-image: image-url("food3.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.image2 {
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  background-image: image-url("food4.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.main-visual-content {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  color: white;
+  font-size: 28px;
+  text-align: center;
+  padding-top: 220px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.top-text {
+  text-shadow: #FC0 1px 0 10px;
+}
+
+.food-name {
+  font-size: 21px;
 }

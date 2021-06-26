@@ -1,6 +1,5 @@
 class Public::PostsController < ApplicationController
   before_action :set_q, only: %i[index search]
-
   def new
     @post = Post.new
     @genres = Genre.all

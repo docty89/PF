@@ -1,13 +1,13 @@
 <div class ="container my-4">
     <div class="row justify-content-center">
-        <div class="col-md-3 text-center">
-          <h4>新規投稿</h4>
+        <div class="col-md-auto text-center">
+          <h5>新規投稿</h5>
         </div>
     </div>
     <%= form_with model: @post, local: true do |f| %>
     <%= render 'shaerd/error_messages', object: f.object %>
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-auto">
          <table class="table table-bordered table_border_radius shadow">
             <tbody class="thead-light">
                <tr>
@@ -40,14 +40,14 @@
                </tr>
                <tr>
                   <th>価格</th>
-                  <td><%=f.text_field :price, class:"form-control"%>円</td>
+                  <td><%=f.text_field :price, class:"form-control" %>円</td>
                </tr>
                <tr>
                   <th>ステータス</th>
                   <td><%= f.radio_button :is_active, :true %>
-    　                 <%= f.label :is_active, "販売中", {value: :true } %>
+    　                 <%= f.label :is_active, "取引中", {value: :true } %>
     　                 <%= f.radio_button :is_active, :false %>
-    　                 <%= f.label :is_active, "販売停止中", {value: :false } %>
+    　                 <%= f.label :is_active, "取引終了", {value: :false } %>
     　             </td>
                </tr>
             </tbody>

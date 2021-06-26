@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do
-    root to: 'homes#top'
+    root 'homes#top'
     resources :posts, only: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]

@@ -17,7 +17,7 @@ Admin.create!(
   User.create!(
     name: Faker::JapaneseMedia::StudioGhibli.unique.character,
     email: "user#{n + 1}@test.com",
-    sex: "男性",
+    sex: "未回答",
     password: '000000',
     password_confirmation: '000000',
     prefecture_code: Gimei.prefecture.kanji,
@@ -182,7 +182,7 @@ Genre.create!(
     storage: "常温",
     expired: "2021-06-30",
     price: 29800,
-    body: "響　30年",
+    body: "響の30年",
     prefecture_code: Gimei.prefecture
     )
 end

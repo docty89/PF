@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do
-    root to: 'homes#top'
+    root 'homes#top'
     resources :posts, only: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 
   scope module: :public do
-    root to: 'homes#top'
+    root 'homes#top'
 
     resources :posts do
       resource :favorites, only: [:create, :destroy]
@@ -37,12 +37,9 @@ Rails.application.routes.draw do
         delete 'destroy_all'
       end
     end
-    resources :maps, only: [:index]
 
     get 'chat/:id' => 'chats#show', as: 'chat'
   end
-
-  # get '/search' => 'search#search'
 
 
 end

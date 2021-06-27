@@ -17,7 +17,7 @@ Admin.create!(
   User.create!(
     name: Faker::JapaneseMedia::StudioGhibli.unique.character,
     email: "user#{n + 1}@test.com",
-    sex: "男性",
+    sex: "未回答",
     password: '000000',
     password_confirmation: '000000',
     prefecture_code: Gimei.prefecture.kanji,
@@ -29,7 +29,7 @@ Genre.create!(
   [{name: "肉・肉加工品"}, {name: "水産物・水産加工品"}, {name: "野菜"}, {name: "果物"}, {name: "卵・チーズ・乳製品"}, {name: "米・雑穀"}, {name: "麺類"}, {name: "パン・製菓"}, {name: "粉類"}, {name: "乾物"}, {name: "調味料"}, {name: "飲料"}, {name: "酒類"}]
   )
 
-3.times do
+10.times do
   Post.create!(
     image: File.open('./app/assets/images/niku.jpg'),
     name: "テスト肉",
@@ -182,7 +182,7 @@ Genre.create!(
     storage: "常温",
     expired: "2021-06-30",
     price: 29800,
-    body: "響　30年",
+    body: "響の30年",
     prefecture_code: Gimei.prefecture
     )
 end

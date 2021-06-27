@@ -37,12 +37,9 @@ Rails.application.routes.draw do
         delete 'destroy_all'
       end
     end
-    resources :maps, only: [:index]
 
     get 'chat/:id' => 'chats#show', as: 'chat'
   end
-
-  # get '/search' => 'search#search'
 
 
 end

@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
-  before_action :set_q, only: %i[index search]
+  before_action :set_q, only: %i[index show search]
+  
   def new
     @post = Post.new
     @genres = Genre.all
@@ -30,6 +31,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @genre = Genre.find(@post.genre_id)
     @user = @post.user
+    @genres = Genre.all
   end
 
   def edit

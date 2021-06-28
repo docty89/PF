@@ -167,7 +167,7 @@ a:hover {
 }
 
 .post-bg {
-  background-image: image-url('bg3.jpg');
+  background-image: image-url('bg6.jpg');
 }
 
 .radius-bottom {
@@ -179,3 +179,64 @@ a:hover {
 //   border-top-left-raidus: 10px;
 //   border-top-right-raidus: 10px;
 // }
+
+.p-header {
+  line-height: 1.4;
+  background-image: image-url('bg6.jpg');
+  background-size: 30px;
+  position: relative;
+  padding: 12px 15px 22px 35px;
+}
+
+.p-box {
+  background-image: image-url('dark.png');
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.p-header:before {
+  height: 9px;
+  bottom: 0;
+  background-image: image-url('dark.png');
+}
+
+.p-header:after {
+  height: 2px;
+  bottom: 2px;
+  background-image: image-url('bg6.jpg');
+  background-size: 100px;
+}
+
+.p-header:after, .p-header:before {
+  content: " ";
+  display: block;
+  width: 100%;
+  position: absolute;
+  background-repeat: repeat;
+  left: 0;
+}
+
+.p-box-content {
+  background-image: image-url('bg8.jpg');
+  padding: 32px;
+}
+
+.p-body {
+  padding-top: 32px;
+}
+
+td {
+  background-image: image-url('bg8.jpg');
+}
+
+.body-width {
+  width: 150px;
+}
+
+.follow-name {
+  font-size: 20px;
+}
+
+.card-container {
+  background-image: image-url('bg8.jpg');
+}

@@ -1,5 +1,5 @@
 <% if user_signed_in? && current_user.id.to_s == params[:id] %>
-<ul class="nav nav-tabs justify-content-center">
+<ul class="nav nav-tabs justify-content-center mt-2">
   <li class="nav-item nav-pills">
     <a class="nav-link active" href="#">プロフィール</a>
   </li>
@@ -34,8 +34,8 @@
       <%= attachment_image_tag @user, :profile_image, size: '150x150', format: 'jpeg', fallback: "no_image.jpg", class: 'rounded-circle shadow' %>
     </div>
     <div class="col-6">
-      <div class="col d-flex pb-2">
-        <h5><%= @user.name %></h5>
+      <div class="col d-flex pb-2 name-size">
+        <h3><%= @user.name %></h3>
       </div>
       <div class="col d-flex pb-2">
         <div>
@@ -73,7 +73,7 @@
   <div class="tab-content pt-4">
     <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
       <div class="row justify-content-center">
-        <div class="col-md-auto">
+        <div class="col">
           <table class="table table_border_radius shadow">
             <thead class="thead-light">
               <tr>
@@ -108,22 +108,22 @@
       </div>
     </div>
     <div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
-      <div class="row">
-        <div class="col">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
           <table class="table table-bordered table-hover">
-            <tr>
-              <th class="mx-auto">登録日時</th>
+            <tr class="thead-light">
+              <th class="body-width">登録日時</th>
               <td><%= l @user.created_at, format: :long %></td>
             </tr>
-            <tr>
+            <tr class="thead-light">
               <th>都道府県</th>
               <td><%= @user.prefecture_code %></td>
             </tr>
-            <tr>
+            <tr class="thead-light">
               <th>市区町村</th>
               <td><%= @user.city %></td>
             </tr>
-            <tr class="body-height">
+            <tr class="body-height thead-light">
               <th>自己紹介</th>
               <td><%= @user.body %></td>
             </tr>

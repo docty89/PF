@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'maps/index'
   devise_for :admins
   devise_for :users
 
@@ -30,7 +29,8 @@ Rails.application.routes.draw do
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
       get :favorites
-      resources :chats, only: [:create]
+      resources :chats, only: [:create, :index]
+      resources :rooms
     end
     resources :notifications, only: :index do
       collection do

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Obake</title>
+    <title>motaoba</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,44 +10,11 @@
   </head>
 
   <body>
-    <header class="shadow">
-      <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="navbar-brand text-dark" href="/"><%= image_tag 'obake.png', :size => '60x50' %>&emsp;もったいないおばけ</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
-              <li class="nav-item ml-2"><%= link_to "新規投稿", new_post_path, class: 'btn btn-light btn-ms nav-link fas fa-plus-square' %></li>
-              <li class="nav-item ml-2"><%= link_to "投稿一覧", posts_path, class: 'btn btn-light btn-ms nav-link fas fa-list-alt' %></li>
-              <li class="nav-item ml-2"><%= link_to "マイページ", user_path(current_user.id), class: 'btn btn-light btn-ms nav-link fas fa-user' %></li>
-              <li class="nav-item ml-2"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-light btn-ms nav-link fas fa-sign-out-alt' %></li>
-            <% elsif admin_signed_in? %>
-              <li class="nav-item mr-5 pt-2">管理者としてログイン中</li>
-              <li class="nav-item ml-2"><%= link_to "ユーザ一覧", admin_users_path, class: 'btn btn-light btn-ms nav-link fas fa-users' %></li>
-              <li class="nav-item ml-2"><%= link_to "管理者トップ", admin_root_path , class: 'btn btn-light btn-ms nav-link fas fa-history' %></li>
-              <li class="nav-item ml-2"><%= link_to "ジャンル一覧", admin_genres_path, class: 'btn btn-light btn-ms nav-link fas fa-list-alt' %></li>
-              <li class="nav-item ml-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-light btn-ms nav-link fas fa-sign-out-alt' %></li>
-            <% else %>
-              <li class="nav-item ml-2"><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-light btn-ms nav-link fas fa-user-plus' %></li>
-              <li class="nav-item ml-2"><%= link_to "ログイン", new_user_session_path, class: 'btn btn-light btn-ms nav-link fas fa-sign-in-alt' %></li>
-            <% end %>
-            </ul>
-          </div>
-      </nav>
-    </header>
+    <%= render "layouts/header" %>
     <main class="main">
     <%= yield %>
     </main>
-    <footer class="pt-3">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-4">
-            <h6 class="text-white my-3 text-center">もったいないおばけ</h6>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%= render "layouts/footer" %>
   </body>
+  
 </html>

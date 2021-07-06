@@ -10,7 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        submodules: true
     - name: Deploy
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}

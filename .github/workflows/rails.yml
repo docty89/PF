@@ -19,7 +19,7 @@ jobs:
         cat private_key
         echo $USER_NAME
         echo $HOST_NAME
-        ssh -o StrictHostKeyChecking=no -i private_key "$USER_NAME"@54.199.114.1 'cd obake &&
+        ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOST_NAME} 'cd obake &&
         git pull origin develop &&
         ~/.rbenv/shims/bundle install &&
         ~/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production &&

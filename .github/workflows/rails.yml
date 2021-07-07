@@ -16,4 +16,4 @@ jobs:
         HOST_NAME: ${{ secrets.HOST_NAME }}
       run: |
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-        ping -c 10 yahoo.co.jp
+        ping -c 10 $HOST_NAME

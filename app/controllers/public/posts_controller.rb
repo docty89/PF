@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :set_q, only: %i[index show search]
-  
+
   def new
     @post = Post.new
     @genres = Genre.all
@@ -10,6 +10,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
+      flash[:notice] = "投稿が完了しました。"
       redirect_to post_path(@post)
     else
       @genres = Genre.all
@@ -41,6 +42,7 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
+      flash[:notice] = "投稿が保存されました。"
       redirect_to post_path(@post)
     else
       render :edit

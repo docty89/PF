@@ -30,13 +30,14 @@ class Public::UsersController < ApplicationController
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    flash[:notice] = '退会完了'
+    flash[:notice] = "退会完了"
     redirect_to root_path
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:notie] = "編集内容を保存しました"
       redirect_to user_path(@user)
     else
       render :edit

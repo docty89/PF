@@ -1,6 +1,12 @@
 class Public::ChatsController < ApplicationController
   before_action :authenticate_user!
-  
+
+  def index
+    @a = current_user.rooms.pluck(:id)
+    @my_chats = UserRoom.where(room_id: @a).pluck(:user_id)
+    @chat_partners = User.where(id: @my_chats).where.not(id: current_user.id)
+  end
+
   def show
     # どのユーザーとチャットするかを取得
     @user = User.find(params[:id])
@@ -30,7 +36,7 @@ class Public::ChatsController < ApplicationController
     @chat.create_notification_chat!(current_user, @chat.id, @chat.room_id, params[:user_id])
     redirect_to request.referer
   end
-  
+
   private
 
   def chat_params

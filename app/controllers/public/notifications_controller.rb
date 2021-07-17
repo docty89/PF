@@ -1,5 +1,7 @@
 class Public::NotificationsController < ApplicationController
   before_action :authenticate_user!
+
+
   def index
     @notifications = current_user.passive_notifications.page(params[:page]).per(10)
     @notifications.where(checked: false).each do |notification|
@@ -11,6 +13,8 @@ class Public::NotificationsController < ApplicationController
     @notifications = current_user.passive_notifications.destroy_all
     redirect_to notifications_path
   end
+  
 end
+
 # 通知一覧表示
 # 見たら未読false → 既読trueと変わるように指定

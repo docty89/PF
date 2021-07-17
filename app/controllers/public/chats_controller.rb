@@ -1,9 +1,10 @@
 class Public::ChatsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_relation, only: [:index]
 
   def index
-    @a = current_user.rooms.pluck(:id)
-    @my_chats = UserRoom.where(room_id: @a).pluck(:user_id)
+    @chats = current_user.rooms.pluck(:id)
+    @my_chats = UserRoom.where(room_id: @chats).pluck(:user_id)
     @chat_partners = User.where(id: @my_chats).where.not(id: current_user.id)
   end
 

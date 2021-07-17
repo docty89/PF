@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!, except: [:quit]
+  before_action :ensure_user, only: [:edit, :follows, :followers, :quit, :quit_confirm, :update]
 
   def show
     @user = User.find(params[:id])
@@ -43,6 +44,7 @@ class Public::UsersController < ApplicationController
       render :edit
     end
   end
+
 
   private
 

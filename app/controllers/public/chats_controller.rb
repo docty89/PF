@@ -1,5 +1,6 @@
 class Public::ChatsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_relation, only: [:index]
 
   def index
     @chats = current_user.rooms.pluck(:id)

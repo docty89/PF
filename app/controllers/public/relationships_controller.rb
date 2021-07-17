@@ -1,5 +1,7 @@
 class Public::RelationshipsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_relation, only: [:followings, :followers]
+
   def create
     @user = User.find_by(id: params[:user_id])
     follow = current_user.active_relationships.build(follower_id: params[:user_id])
@@ -23,4 +25,12 @@ class Public::RelationshipsController < ApplicationController
     user = User.find(params[:user_id])
     @users = user.followers
   end
+
+  def ensure_relation
+    if current_user.id != params[:user_id].to_i
+      flash[:notice] = "権限がありません"
+      redirect_to posts_path
+    end
+  end
+  
 end

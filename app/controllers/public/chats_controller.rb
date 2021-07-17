@@ -37,8 +37,6 @@ class Public::ChatsController < ApplicationController
     redirect_to request.referer
   end
 
-
-
   private
 
   def chat_params

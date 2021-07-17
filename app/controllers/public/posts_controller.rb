@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_q, only: %i[index show search]
 
   def new

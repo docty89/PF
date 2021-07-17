@@ -29,7 +29,6 @@ Rails.application.routes.draw do
       get 'followers' => 'relationships#followers', as: 'followers'
       get :favorites
       resources :chats, only: [:create, :index]
-      resources :rooms
     end
     resources :notifications, only: :index do
       collection do

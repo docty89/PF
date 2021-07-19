@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       end
     end
 
+
     get 'chat/:id' => 'chats#show', as: 'chat'
   end
 

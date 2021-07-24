@@ -247,3 +247,17 @@ td {
   border-radius: 0 0 2px 2px;
   font-size: 14px;
 }
+
+.btns {
+  text-align: center;
+}
+
+.new-btn {
+  padding: 6px 40px;
+}
+
+@media(max-width: 500px) {
+  input[type="text"] {
+    width: 300px;
+  }
+}

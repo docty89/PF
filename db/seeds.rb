@@ -185,4 +185,5 @@ Genre.create!(
     body: "響の30年",
     prefecture_code: Gimei.prefecture
     )
+    
 end

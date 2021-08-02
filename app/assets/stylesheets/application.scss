@@ -216,9 +216,6 @@ a:hover {
   padding: 32px;
 }
 
-.p-body {
-  padding-top: 32px;
-}
 
 td {
   background-image: image-url('bg8.jpg');
@@ -254,6 +251,11 @@ td {
 
 .new-btn {
   padding: 6px 40px;
+}
+
+.aaa {
+  max-width: 350px;
+  max-height: 350px;
 }
 
 @media(max-width: 500px) {

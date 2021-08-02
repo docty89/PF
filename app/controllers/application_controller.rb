@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_post
+    if current_user.id != Post.find(params[:id]).user.id
+      flash[:notice] = "権限がありません"
+      redirect_to posts_path
+    end
+  end
+
   def ensure_relation
     if current_user.id != params[:user_id].to_i
       flash[:notice] = "権限がありません"

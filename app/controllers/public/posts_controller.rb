@@ -1,7 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_q, only: %i[index show search]
-  before_action :ensure_user, only: [:edit, :update, :destroy]
+  before_action :ensure_post, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new

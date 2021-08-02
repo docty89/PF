@@ -23,7 +23,7 @@
         <div class="p-box-content">
           <div class="row">
             <div class="col-md-auto aaa">
-              <%= attachment_image_tag @post, :image, format: 'jpeg', size: "350x350" %>
+              <%= attachment_image_tag @post, :image, format: 'jpeg', width: "100%", height: "100%" %>
             </div>
             <div class="col-md-auto">
               <div>
@@ -39,13 +39,13 @@
                 <div class="favorite"><%= render "public/favorites/favorite", post: @post %></div>
               </div>
             </div>
-          </div>  
-          <div class="row">
-            <div class="col-md-auto p-body">
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-auto">
               <%= form_with model: @post, local: true do |f| %>
-                <%= f.text_area :body, :readonly => true, size: '40x5' %>
+                <%= f.text_area :body, :readonly => true, size: '30x5' %>
               <% end %>
-            </div>  
+            </div>
             <div class="col-md-auto">
               <div>
                 投稿者：
@@ -65,6 +65,6 @@
       <% if @post.user == current_user %>
         <%= link_to "投稿削除", post_path(@post), method: :delete, class: 'btn btn-outline-danger', data: {confirm: "削除しますか？"} %>
         <%= link_to "編集", edit_post_path(@post), class: 'btn btn-outline-success ml-4' %>
-      <% end %>    
+      <% end %>
       </div>
     </div>
